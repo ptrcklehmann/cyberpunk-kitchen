@@ -1,7 +1,10 @@
-import type { TadaDocumentNode } from 'gql.tada';
-import type { ComponentType } from 'react';
-import { type EnabledQueryListenerOptions, useQuerySubscription } from 'react-datocms';
-import type { ContentComponentType } from './generatePageComponent';
+import type { TadaDocumentNode } from "gql.tada";
+import type { ComponentType } from "react";
+import {
+  type EnabledQueryListenerOptions,
+  useQuerySubscription,
+} from "react-datocms";
+import type { ContentComponentType } from "./generatePageComponent";
 
 /**
  * Generates a Client Component that subscribes to DatoCMS's Real-time Updates
@@ -12,10 +15,11 @@ export function generateRealtimeComponent<PageProps, Result, Variables>({
   query,
   contentComponent: ContentComponent,
 }: GenerateRealtimeComponentOptions<PageProps, Result, Variables>) {
-  const RealtimeComponent: RealtimeComponentType<PageProps, Result, Variables> = ({
-    pageProps,
-    ...subscriptionOptions
-  }) => {
+  const RealtimeComponent: RealtimeComponentType<
+    PageProps,
+    Result,
+    Variables
+  > = ({ pageProps, ...subscriptionOptions }) => {
     const { data, error } = useQuerySubscription(subscriptionOptions);
 
     // Feel free to customize your way of rendering the error

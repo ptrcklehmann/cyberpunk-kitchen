@@ -16,11 +16,11 @@ import { executeQuery } from "./executeQuery";
  * DatoCMS GraphQL query.
  */
 export function generateMetadataFn<PageProps, Result, Variables>(
-  options: GenerateMetadataFnOptions<PageProps, Result, Variables>
+  options: GenerateMetadataFnOptions<PageProps, Result, Variables>,
 ) {
   return async function generateMetadata(
     pageProps: PageProps,
-    parent: ResolvingMetadata
+    parent: ResolvingMetadata,
   ): Promise<Metadata> {
     const { isEnabled: isDraftModeEnabled } = await draftMode();
 
@@ -46,7 +46,7 @@ export function generateMetadataFn<PageProps, Result, Variables>(
 }
 
 export type BuildQueryVariablesFn<PageProps, Variables> = (
-  context: PageProps
+  context: PageProps,
 ) => Variables;
 
 export type GenerateMetadataFnOptions<PageProps, Result, Variables> = {
@@ -59,6 +59,6 @@ export type GenerateMetadataFnOptions<PageProps, Result, Variables> = {
 
   /** A callback that picks the SEO meta tags from the result of the query. */
   pickSeoMetaTags: (
-    data: Result
+    data: Result,
   ) => TitleMetaLinkTag[] | SeoOrFaviconTag[] | undefined;
 };

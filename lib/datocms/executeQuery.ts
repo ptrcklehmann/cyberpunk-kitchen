@@ -13,7 +13,7 @@ export const cacheTag = "datocms";
  */
 export async function executeQuery<Result, Variables>(
   query: TadaDocumentNode<Result, Variables>,
-  options?: ExecuteQueryOptions<Variables>
+  options?: ExecuteQueryOptions<Variables>,
 ) {
   buildRequestInit;
   const result = await libExecuteQuery(query, {
