@@ -1,4 +1,4 @@
-import "@/styles/globals.css";
+import "./globals.css";
 import clsx from "clsx";
 import { Metadata, Viewport } from "next";
 
@@ -37,7 +37,7 @@ export default function RootLayout({
       <body
         className={clsx(
           "min-h-screen text-foreground bg-background font-sans antialiased",
-          fontSans.variable,
+          fontSans.variable
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
