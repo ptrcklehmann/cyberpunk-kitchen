@@ -13,6 +13,28 @@ const config = {
         sans: ["var(--font-sans)"],
         mono: ["var(--font-mono)"],
       },
+      colors: {
+        primary: {
+          DEFAULT: "var(--color-primary)",
+          light: "var(--color-primary-light)",
+          dark: "var(--color-primary-dark)",
+        },
+        secondary: {
+          DEFAULT: "var(--color-secondary)",
+          light: "var(--color-secondary-light)",
+          dark: "var(--color-secondary-dark)",
+        },
+        background: {
+          DEFAULT: "var(--color-background)",
+          light: "var(--color-background-light)",
+          dark: "var(--color-background-dark)",
+        },
+        foreground: {
+          DEFAULT: "var(--color-foreground)",
+          light: "var(--color-foreground-light)",
+          dark: "var(--color-foreground-dark)",
+        },
+      },
     },
   },
   darkMode: "class",
