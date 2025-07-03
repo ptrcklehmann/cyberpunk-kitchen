@@ -31,7 +31,7 @@ export const RecipeCard = ({
       <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
         <Button
           className="text-sm text-stone-900"
-          color="secondary"
+          color="primary"
           radius="full"
           size="sm"
         >
