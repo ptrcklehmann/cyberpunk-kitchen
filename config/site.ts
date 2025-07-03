@@ -13,47 +13,27 @@ export const siteConfig = {
       href: "/recipes",
     },
     {
-      label: "Tips & Tricks",
-      href: "/tips-tricks",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "About",
-      href: "/about",
+      label: "Recipe Championship",
+      href: "/championship",
     },
   ],
   navMenuItems: [
     {
-      label: "Profile",
+      label: "Recipes",
       href: "/profile",
     },
     {
-      label: "Dashboard",
-      href: "/dashboard",
-    },
-    {
-      label: "Team",
-      href: "/team",
-    },
-    {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
-      href: "/settings",
+      label: "Recipe Championship",
+      href: "/championship",
     },
     {
       label: "Help & Feedback",
       href: "/help-feedback",
     },
-    {
-      label: "Logout",
-      href: "/logout",
-    },
+    // {
+    //   label: "Logout",
+    //   href: "/logout",
+    // },
   ],
   links: {
     // github: "https://github.com/heroui-inc/heroui",
