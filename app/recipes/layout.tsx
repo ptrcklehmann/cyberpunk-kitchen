@@ -1,13 +1,14 @@
+import { BreadcrumbsComponent } from "@/components/breadcrumbs";
+
 export default function DocsLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="inline-block max-w-lg text-center justify-center">
-        {children}
-      </div>
+    <section className="flex flex-col gap-4 py-1 md:py-2">
+      <BreadcrumbsComponent />
+      <div className="inline-block max-w-2xl justify-center">{children}</div>
     </section>
   );
 }

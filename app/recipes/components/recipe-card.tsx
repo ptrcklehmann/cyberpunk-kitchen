@@ -1,18 +1,34 @@
 "use client";
-import { Card, CardFooter, Image, Button, CardHeader } from "@heroui/react";
+import {
+  Card,
+  CardFooter,
+  Image,
+  Button,
+  CardHeader,
+  Avatar,
+} from "@heroui/react";
+import Link from "next/link";
 
 type RecipeCardProps = {
   title: string;
-  image: {
-    url: string;
-    width: number;
-    height: number;
+  slug: string;
+  imageUrl: string;
+  endorsedBy?: {
+    slug: string | null;
+    name: string;
+    avatar: {
+      url: string;
+    } | null;
   };
 };
 export const RecipeCard = ({
   title,
-  image: { url, width, height },
+  slug,
+  imageUrl,
+  endorsedBy,
 }: RecipeCardProps) => {
+  const authorImage = endorsedBy?.avatar?.url;
+
   return (
     <Card
       isFooterBlurred
@@ -26,17 +42,28 @@ export const RecipeCard = ({
         removeWrapper
         alt="Card example background"
         className="z-0 w-full h-full scale-125 -translate-y-6 object-cover"
-        src={url}
+        src={imageUrl}
       />
       <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
         <Button
+          as={Link}
           className="text-sm text-stone-900"
           color="primary"
+          href={`/recipes/${slug}`}
           radius="full"
           size="sm"
         >
           Check it out
         </Button>
+        <Avatar
+          isBordered
+          showFallback
+          alt="Author avatar"
+          color="primary"
+          name={endorsedBy?.name || ""}
+          size="sm"
+          src={authorImage || ""}
+        />
       </CardFooter>
     </Card>
   );

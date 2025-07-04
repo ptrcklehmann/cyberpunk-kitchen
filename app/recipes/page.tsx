@@ -1,4 +1,4 @@
-import { RecipeCard } from "./components/recipeCard";
+import { RecipeCard } from "./components/recipe-card";
 
 import { title } from "@/components/primitives";
 import { executeQuery } from "@/lib/datocms/executeQuery";
@@ -8,15 +8,18 @@ const ALL_RECIPES_QUERY = graphql(`
   query AllRecipesQuery {
     allRecipes {
       id
-      _createdAt
       title
+      slug
       image {
         url
-        width
-        height
       }
-      cookingTime
-      servings
+      endorsedBy {
+        slug
+        name
+        avatar {
+          url
+        }
+      }
     }
   }
 `);
@@ -31,11 +34,9 @@ export default async function RecipesPage() {
           return (
             <RecipeCard
               key={recipe.id}
-              image={{
-                url: recipe.image.url,
-                width: recipe.image.width || 300,
-                height: recipe.image.height || 300,
-              }}
+              endorsedBy={recipe.endorsedBy[0]}
+              imageUrl={recipe.image.url}
+              slug={recipe.slug}
               title={recipe.title}
             />
           );

@@ -1,13 +1,9 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Cyberpunk Kitchen",
-  description: "A futuristic dining experience",
+  name: "FlavourForge",
+  description: "Where heroes craft legendary meals",
   navItems: [
-    {
-      label: "Home",
-      href: "/",
-    },
     {
       label: "Recipes",
       href: "/recipes",
