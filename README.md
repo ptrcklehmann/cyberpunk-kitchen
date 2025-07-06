@@ -17,7 +17,7 @@ FlavorForge is a cyberpunk-inspired recipe app, powered by Next.js, Tailwind CSS
 ### 🛠 Tech Stack
 
 - **Framework:** [Next.js](https://nextjs.org/)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Styling:** [HeroUI] (https://www.heroui.com/) + [Tailwind CSS](https://tailwindcss.com/)
 - **CMS:** [DatoCMS](https://www.datocms.com/)
 - **Deployment:** [Vercel](https://vercel.com/)
 
