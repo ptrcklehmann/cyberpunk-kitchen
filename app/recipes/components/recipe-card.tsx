@@ -21,7 +21,12 @@ type RecipeCardProps = {
     } | null;
   };
 };
-export const RecipeCard = ({ title, slug, imageUrl, chef }: RecipeCardProps) => {
+export const RecipeCard = ({
+  title,
+  slug,
+  imageUrl,
+  chef,
+}: RecipeCardProps) => {
   const authorImage = chef.avatar?.url;
 
   return (
