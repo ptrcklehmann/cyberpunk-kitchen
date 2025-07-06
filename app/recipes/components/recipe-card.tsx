@@ -13,7 +13,7 @@ type RecipeCardProps = {
   title: string;
   slug: string;
   imageUrl: string;
-  endorsedBy?: {
+  chef: {
     slug: string | null;
     name: string;
     avatar: {
@@ -21,13 +21,8 @@ type RecipeCardProps = {
     } | null;
   };
 };
-export const RecipeCard = ({
-  title,
-  slug,
-  imageUrl,
-  endorsedBy,
-}: RecipeCardProps) => {
-  const authorImage = endorsedBy?.avatar?.url;
+export const RecipeCard = ({ title, slug, imageUrl, chef }: RecipeCardProps) => {
+  const authorImage = chef.avatar?.url;
 
   return (
     <Card
@@ -60,7 +55,7 @@ export const RecipeCard = ({
           showFallback
           alt="Author avatar"
           color="primary"
-          name={endorsedBy?.name || ""}
+          name={chef.name}
           size="sm"
           src={authorImage || ""}
         />

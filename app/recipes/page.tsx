@@ -13,7 +13,7 @@ const ALL_RECIPES_QUERY = graphql(`
       image {
         url
       }
-      endorsedBy {
+      chef {
         slug
         name
         avatar {
@@ -34,7 +34,7 @@ export default async function RecipesPage() {
           return (
             <RecipeCard
               key={recipe.id}
-              endorsedBy={recipe.endorsedBy[0]}
+              chef={recipe.chef}
               imageUrl={recipe.image.url}
               slug={recipe.slug}
               title={recipe.title}

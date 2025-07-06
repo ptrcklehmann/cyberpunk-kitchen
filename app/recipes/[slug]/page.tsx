@@ -16,7 +16,7 @@ const RECIPE_BY_SLUG_QUERY = graphql(`
         height
       }
       ingredients
-      endorsedBy {
+      chef {
         avatar {
           width
           height
