@@ -1,53 +1,50 @@
-# Next.js & HeroUI Template
+## 🔥 FlavorForge
 
-This is a template for creating applications using Next.js 14 (app directory) and HeroUI (v2).
+**Where Marvel heroes craft legendary meals.**
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/heroui/next-app-template)
+FlavorForge is a cyberpunk-inspired recipe app, powered by Next.js, Tailwind CSS, and DatoCMS. Dive into dishes personally created by iconic Marvel heroes, each recipe reflecting their unique personalities and stories. Experience heroic cooking like never before—bold, immersive, and irresistibly flavorful.
 
-## Technologies Used
+---
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [HeroUI v2](https://heroui.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+### ✨ Features
 
-## How to Use
+* **Marvel Hero Recipes:** Explore recipes personally crafted by Marvel icons like Loki, Thor, Iron Man, and more.
+* **Interactive Cyberpunk Design:** A futuristic UI powered by Next.js, styled with Tailwind, and animated for a sleek, immersive experience.
+* **Content Managed with DatoCMS:** Easy-to-update recipes, ingredients, and hero bios through a powerful CMS.
 
-### Use the template with create-next-app
+---
 
-To create a new project based on this template using `create-next-app`, run the following command:
+### 🛠 Tech Stack
 
-```bash
-npx create-next-app -e https://github.com/heroui-inc/next-app-template
-```
+* **Framework:** [Next.js](https://nextjs.org/)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+* **CMS:** [DatoCMS](https://www.datocms.com/)
+* **Deployment:** [Vercel](https://vercel.com/)
 
-### Install dependencies
+---
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+### 🚀 Getting Started
 
 ```bash
+git clone <repo-url>
+cd flavorforge
 npm install
-```
-
-### Run the development server
-
-```bash
 npm run dev
 ```
 
-### Setup pnpm (optional)
+Visit your app at [http://localhost:3000](http://localhost:3000).
 
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
+---
 
-```bash
-public-hoist-pattern[]=*@heroui/*
-```
+### 🌟 Contributions Welcome!
 
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+Got ideas or recipes you'd love to see your favorite Marvel character endorse?
+Open an issue or send a PR. Let's cook something heroic!
 
-## License
+---
 
-Licensed under the [MIT license](https://github.com/heroui-inc/next-app-template/blob/main/LICENSE).
+### 📝 License
+
+MIT © Patrick Lehmann
+
+---
