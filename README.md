@@ -8,18 +8,18 @@ FlavorForge is a cyberpunk-inspired recipe app, powered by Next.js, Tailwind CSS
 
 ### ✨ Features
 
-* **Marvel Hero Recipes:** Explore recipes personally crafted by Marvel icons like Loki, Thor, Iron Man, and more.
-* **Interactive Cyberpunk Design:** A futuristic UI powered by Next.js, styled with Tailwind, and animated for a sleek, immersive experience.
-* **Content Managed with DatoCMS:** Easy-to-update recipes, ingredients, and hero bios through a powerful CMS.
+- **Marvel Hero Recipes:** Explore recipes personally crafted by Marvel icons like Loki, Thor, Iron Man, and more.
+- **Interactive Cyberpunk Design:** A futuristic UI powered by Next.js, styled with Tailwind, and animated for a sleek, immersive experience.
+- **Content Managed with DatoCMS:** Easy-to-update recipes, ingredients, and hero bios through a powerful CMS.
 
 ---
 
 ### 🛠 Tech Stack
 
-* **Framework:** [Next.js](https://nextjs.org/)
-* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-* **CMS:** [DatoCMS](https://www.datocms.com/)
-* **Deployment:** [Vercel](https://vercel.com/)
+- **Framework:** [Next.js](https://nextjs.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **CMS:** [DatoCMS](https://www.datocms.com/)
+- **Deployment:** [Vercel](https://vercel.com/)
 
 ---
 
