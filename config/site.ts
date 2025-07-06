@@ -16,16 +16,16 @@ export const siteConfig = {
   navMenuItems: [
     {
       label: "Recipes",
-      href: "/profile",
+      href: "/recipes",
     },
     {
       label: "Recipe Championship",
       href: "/championship",
     },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
-    },
+    // {
+    //   label: "Help & Feedback",
+    //   href: "/help-feedback",
+    // },
     // {
     //   label: "Logout",
     //   href: "/logout",
