@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const title = tv({
-  base: "tracking-tight inline font-semibold",
+  base: "tracking-tight inline font-semibold text-shadow-md",
   variants: {
     color: {
       violet: "from-[#FF1CF7] to-[#b249f8]",
@@ -10,6 +10,7 @@ export const title = tv({
       cyan: "from-[#00b7fa] to-[#01cfea]",
       green: "from-[#6FEE8D] to-[#17c964]",
       pink: "from-[#FF72E1] to-[#F54C7A]",
+      primary: "from-primary to-primary-300",
       foreground: "dark:from-[#FFFFFF] dark:to-[#4B4B4B]",
     },
     size: {
@@ -33,6 +34,7 @@ export const title = tv({
         "cyan",
         "green",
         "pink",
+        "primary",
         "foreground",
       ],
       class: "bg-clip-text text-transparent bg-gradient-to-b",
@@ -41,7 +43,7 @@ export const title = tv({
 });
 
 export const subtitle = tv({
-  base: "w-full md:w-1/2 my-2 text-lg lg:text-xl text-default-600 block max-w-full",
+  base: "w-full md:w-1/2 my-2 text-lg lg:text-xl text-default-800 block max-w-full",
   variants: {
     fullWidth: {
       true: "!w-full",

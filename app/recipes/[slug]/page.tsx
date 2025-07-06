@@ -2,7 +2,7 @@ import Markdown from "react-markdown";
 
 import { HeaderImage } from "./header-image";
 
-import { title } from "@/components/primitives";
+import { title, subtitle } from "@/components/primitives";
 import { executeQuery } from "@/lib/datocms/executeQuery";
 import { graphql } from "@/lib/datocms/graphql";
 
@@ -16,6 +16,7 @@ const RECIPE_BY_SLUG_QUERY = graphql(`
         height
       }
       ingredients
+      cookingMethod
       chef {
         avatar {
           width
@@ -41,15 +42,32 @@ export default async function RecipePage({
   });
 
   if (!recipe) {
-    return <h1 className={title()}>Recipe not found</h1>;
+    return (
+      <h1
+        className={title({
+          color: "primary",
+        })}
+      >
+        Recipe not found
+      </h1>
+    );
   }
 
   return (
     <div className="flex-1 flex flex-col gap-4">
       <HeaderImage imageUrl={recipe.image.url} />
-      <h1 className={title()}>{recipe.title}</h1>
+      <h1
+        className={title({
+          color: "primary",
+        })}
+      >
+        {recipe.title}
+      </h1>
       <div>
+        <p className={subtitle()}>Ingredients</p>
         <Markdown>{recipe.ingredients}</Markdown>
+        <p className={subtitle()}>Cooking Method</p>
+        <Markdown>{recipe.cookingMethod}</Markdown>
       </div>
     </div>
   );
