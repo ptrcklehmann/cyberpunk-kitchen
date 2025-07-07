@@ -8,7 +8,7 @@ import { graphql } from "@/lib/datocms/graphql";
 
 const ALL_RECIPES_QUERY = graphql(`
   query AllCharactersQuery {
-    allCharacters {
+    allCharacters(orderBy: name_ASC) {
       name
       slug
       quote

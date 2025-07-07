@@ -1,6 +1,7 @@
 "use client";
 import { Card, Image, CardFooter } from "@heroui/react";
 import Link from "next/link";
+import NextImage from "next/image";
 
 type ChefCardProps = {
   chef: {
@@ -31,8 +32,11 @@ export const ChefCard = ({
       <Image
         removeWrapper
         alt={`Chef ${name}`}
+        as={NextImage}
         className="z-0 w-full h-full object-cover"
+        height={avatar?.height || 400}
         src={chefImage}
+        width={avatar?.width || 400}
       />
       <CardFooter className="absolute bg-default-100/40 bottom-0 border-t-1 border-zinc-100/50 z-10 flex-col items-start p-4">
         <h4 className="font-bold text-xl text-default-foreground">{name}</h4>
