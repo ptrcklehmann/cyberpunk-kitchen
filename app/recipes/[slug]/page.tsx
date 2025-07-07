@@ -1,5 +1,7 @@
+import type { Metadata } from "next";
+
 import Markdown from "react-markdown";
-import { Metadata } from "next";
+import { toNextMetadata } from "react-datocms";
 
 import { HeaderImage } from "./header-image";
 
@@ -36,39 +38,20 @@ const RECIPE_BY_SLUG_QUERY = graphql(`
 `);
 
 type PageProps = {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const slug = (await params).slug;
+  const { slug } = await params;
   const { recipe } = await executeQuery(RECIPE_BY_SLUG_QUERY, {
     variables: {
       slug,
     },
   });
 
-  if (!recipe) {
-    return {
-      title: "Recipe not found",
-    };
-  }
-
-  return {
-    title: recipe.title,
-    openGraph: {
-      images: [
-        {
-          url: recipe.image.url,
-          width: recipe.image.width || 1200,
-          height: recipe.image.height || 630,
-        },
-      ],
-    },
-  };
+  return toNextMetadata(recipe?._seoMetaTags || []);
 }
 
 export default async function RecipePage({

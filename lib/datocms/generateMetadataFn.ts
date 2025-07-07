@@ -6,7 +6,7 @@ import {
   type SeoOrFaviconTag,
   type TitleMetaLinkTag,
   toNextMetadata,
-} from "react-datocms/seo";
+} from "react-datocms";
 
 import { executeQuery } from "./executeQuery";
 
@@ -16,16 +16,17 @@ import { executeQuery } from "./executeQuery";
  * DatoCMS GraphQL query.
  */
 export function generateMetadataFn<PageProps, Result, Variables>(
-  options: GenerateMetadataFnOptions<PageProps, Result, Variables>,
+  options: GenerateMetadataFnOptions<PageProps, Result, Variables>
 ) {
   return async function generateMetadata(
     pageProps: PageProps,
-    parent: ResolvingMetadata,
+    parent: ResolvingMetadata
   ): Promise<Metadata> {
     const { isEnabled: isDraftModeEnabled } = await draftMode();
 
-    const variables =
-      options.buildQueryVariables?.(pageProps) || ({} as Variables);
+    const variables = options.buildQueryVariables
+      ? await options.buildQueryVariables(pageProps)
+      : ({} as Variables);
 
     const [parentMetadata, data] = await Promise.all([
       parent,
@@ -38,16 +39,19 @@ export function generateMetadataFn<PageProps, Result, Variables>(
     const tags = options.pickSeoMetaTags(data as Result);
 
     // Combine metadata from parent routes with those of this route:
+    const parentMetadataObj = parentMetadata as Metadata;
+    const datoCmsMetadata = toNextMetadata(tags || []);
+
     return {
-      ...(parentMetadata as Metadata),
-      ...toNextMetadata(tags || []),
+      ...parentMetadataObj,
+      ...datoCmsMetadata,
     };
   };
 }
 
 export type BuildQueryVariablesFn<PageProps, Variables> = (
-  context: PageProps,
-) => Variables;
+  context: PageProps
+) => Variables | Promise<Variables>;
 
 export type GenerateMetadataFnOptions<PageProps, Result, Variables> = {
   /** The GraphQL query that will be used to generate metadata. */
@@ -59,6 +63,6 @@ export type GenerateMetadataFnOptions<PageProps, Result, Variables> = {
 
   /** A callback that picks the SEO meta tags from the result of the query. */
   pickSeoMetaTags: (
-    data: Result,
+    data: Result
   ) => TitleMetaLinkTag[] | SeoOrFaviconTag[] | undefined;
 };
