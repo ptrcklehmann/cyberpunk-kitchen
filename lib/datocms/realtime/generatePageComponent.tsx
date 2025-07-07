@@ -21,7 +21,7 @@ import { executeQuery } from "../executeQuery";
  * - the page displays `contentComponent`.
  */
 export function generatePageComponent<PageProps, Result, Variables>(
-  options: GeneratePageComponentOptions<PageProps, Result, Variables>
+  options: GeneratePageComponentOptions<PageProps, Result, Variables>,
 ) {
   return async function Page(unsanitizedPageProps: PageProps) {
     const { isEnabled: isDraftModeEnabled } = await draftMode();
