@@ -9,6 +9,10 @@ export const siteConfig = {
       href: "/recipes",
     },
     {
+      label: "Chefs",
+      href: "/chefs",
+    },
+    {
       label: "Recipe Championship",
       href: "/championship",
     },
@@ -17,6 +21,10 @@ export const siteConfig = {
     {
       label: "Recipes",
       href: "/recipes",
+    },
+    {
+      label: "Chefs",
+      href: "/chefs",
     },
     {
       label: "Recipe Championship",

@@ -6,6 +6,10 @@ export const BreadcrumbsComponent = () => {
   const pathname = usePathname();
   const pathParts = pathname.split("/").filter(Boolean);
 
+  if (pathParts.length === 0) {
+    return null; // No breadcrumbs to display
+  }
+
   return (
     <Breadcrumbs className="mb-4">
       {pathParts.map((part, index) => {
@@ -14,6 +18,10 @@ export const BreadcrumbsComponent = () => {
           .split("-")
           .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
           .join(" ");
+
+        if (index === 0 && index === pathParts.length - 1) {
+          return null; // Skip the first part if it's "index"
+        }
 
         return (
           <BreadcrumbItem key={index} href={href} title={partLabel}>

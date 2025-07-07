@@ -1,9 +1,11 @@
 import type { TadaDocumentNode } from "gql.tada";
-import { draftMode } from "next/headers";
 import type { ComponentType } from "react";
-import { executeQuery } from "../executeQuery";
 import type { BuildQueryVariablesFn } from "../generateMetadataFn";
 import type { RealtimeComponentType } from "./generateRealtimeComponent";
+
+import { draftMode } from "next/headers";
+
+import { executeQuery } from "../executeQuery";
 
 /**
  * Generates a Next.js page component that executes a DatoCMS query, and then
@@ -19,17 +21,17 @@ import type { RealtimeComponentType } from "./generateRealtimeComponent";
  * - the page displays `contentComponent`.
  */
 export function generatePageComponent<PageProps, Result, Variables>(
-  options: GeneratePageComponentOptions<PageProps, Result, Variables>,
+  options: GeneratePageComponentOptions<PageProps, Result, Variables>
 ) {
   return async function Page(unsanitizedPageProps: PageProps) {
-    const { isEnabled: isDraftModeEnabled } = draftMode();
+    const { isEnabled: isDraftModeEnabled } = await draftMode();
 
     /*
      * Since props passed from the server to client components must be
      * serializable, we extract the non-serializable `searchParams` property
      * from the original object.
      */
-    const { searchParams, ...pagePropsWithoutSearchParams } =
+    const { ...pagePropsWithoutSearchParams } =
       unsanitizedPageProps as PageProps & {
         searchParams: unknown;
       };
@@ -51,13 +53,13 @@ export function generatePageComponent<PageProps, Result, Variables>(
 
     return isDraftModeEnabled ? (
       <RealTimeComponent
-        token={process.env.DATOCMS_DRAFT_CONTENT_CDA_TOKEN!}
-        query={options.query}
-        variables={variables}
+        excludeInvalid={true}
+        includeDrafts={isDraftModeEnabled}
         initialData={data}
         pageProps={pageProps}
-        includeDrafts={isDraftModeEnabled}
-        excludeInvalid={true}
+        query={options.query}
+        token={process.env.DATOCMS_DRAFT_CONTENT_CDA_TOKEN!}
+        variables={variables}
       />
     ) : (
       <ContentComponent {...pageProps} data={data} />

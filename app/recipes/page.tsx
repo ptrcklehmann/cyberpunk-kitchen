@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { RecipeCard } from "./components/recipe-card";
 
 import { title } from "@/components/primitives";
@@ -24,12 +26,21 @@ const ALL_RECIPES_QUERY = graphql(`
   }
 `);
 
+export const metadata: Metadata = {
+  title: "Recipes - FlavourForge",
+  openGraph: {
+    title: "Recipes - FlavourForge",
+    description: "Explore our collection of delicious recipes.",
+  },
+};
+
 export default async function RecipesPage() {
   const { allRecipes } = await executeQuery(ALL_RECIPES_QUERY);
 
   return (
-    <div>
-      <h1 className={title()}>
+    <>
+      <h1 className={title()}>Recipes</h1>
+      <div className="grid grid-cols-2 gap-4">
         {allRecipes.map((recipe) => {
           return (
             <RecipeCard
@@ -41,7 +52,7 @@ export default async function RecipesPage() {
             />
           );
         })}
-      </h1>
-    </div>
+      </div>
+    </>
   );
 }

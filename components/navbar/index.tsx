@@ -70,7 +70,7 @@ export const Navbar = () => {
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Logo size={24} />
-            <p className="font-bold text-[#831c0b]">FlavourForge</p>
+            <p className="font-bold text-danger-400">FlavourForge</p>
           </NextLink>
         </NavbarBrand>
         <NavLinks items={siteConfig.navItems} />

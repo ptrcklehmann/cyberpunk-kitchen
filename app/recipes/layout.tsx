@@ -1,5 +1,3 @@
-import { BreadcrumbsComponent } from "@/components/breadcrumbs";
-
 export default function DocsLayout({
   children,
 }: {
@@ -7,7 +5,6 @@ export default function DocsLayout({
 }) {
   return (
     <section className="flex flex-col gap-4 py-1 md:py-2">
-      <BreadcrumbsComponent />
       <div className="inline-block max-w-2xl justify-center">{children}</div>
     </section>
   );

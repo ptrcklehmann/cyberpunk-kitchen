@@ -1,4 +1,5 @@
 import Markdown from "react-markdown";
+import { Metadata } from "next";
 
 import { HeaderImage } from "./header-image";
 
@@ -9,6 +10,11 @@ import { graphql } from "@/lib/datocms/graphql";
 const RECIPE_BY_SLUG_QUERY = graphql(`
   query RecipeBySlugQuery($slug: String!) {
     recipe(filter: { slug: { eq: $slug } }) {
+      _seoMetaTags {
+        tag
+        attributes
+        content
+      }
       slug
       image {
         url
@@ -28,6 +34,42 @@ const RECIPE_BY_SLUG_QUERY = graphql(`
     }
   }
 `);
+
+type PageProps = {
+  params: {
+    slug: string;
+  };
+};
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const slug = (await params).slug;
+  const { recipe } = await executeQuery(RECIPE_BY_SLUG_QUERY, {
+    variables: {
+      slug,
+    },
+  });
+
+  if (!recipe) {
+    return {
+      title: "Recipe not found",
+    };
+  }
+
+  return {
+    title: recipe.title,
+    openGraph: {
+      images: [
+        {
+          url: recipe.image.url,
+          width: recipe.image.width || 1200,
+          height: recipe.image.height || 630,
+        },
+      ],
+    },
+  };
+}
 
 export default async function RecipePage({
   params,

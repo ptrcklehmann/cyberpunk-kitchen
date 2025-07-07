@@ -2,6 +2,7 @@ import {
   type GenerateMetadataFnOptions,
   generateMetadataFn,
 } from "../generateMetadataFn";
+
 import {
   type GeneratePageComponentOptions,
   generatePageComponent,

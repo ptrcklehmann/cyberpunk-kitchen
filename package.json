@@ -12,6 +12,7 @@
     "prepare": "npx simple-git-hooks && npm run generate-schema"
   },
   "dependencies": {
+    "@datocms/cma-client": "^4.0.2",
     "@heroui/button": "2.2.23-beta.0",
     "@heroui/code": "2.2.17-beta.3",
     "@heroui/input": "2.4.23-beta.0",
