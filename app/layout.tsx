@@ -6,7 +6,7 @@ import { Navbar } from "../components/navbar";
 
 import { Providers } from "./providers";
 
-import { fontSans } from "@/config/fonts";
+import { fontSans, fontHeader, fontMono } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import { BreadcrumbsComponent } from "@/components/breadcrumbs";
 
@@ -40,6 +40,8 @@ export default function RootLayout({
         className={clsx(
           "min-h-screen text-foreground bg-background font-sans antialiased",
           fontSans.variable,
+          fontHeader.variable,
+          fontMono.variable
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
