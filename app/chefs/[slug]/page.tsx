@@ -24,6 +24,10 @@ const CHEF_BY_SLUG_QUERY = graphql(`
         width
         title
         height
+        focalPoint {
+          x
+          y
+        }
       }
       bio
       name
@@ -86,7 +90,11 @@ export default async function ChefPage({ params }: PageProps) {
       <div className="flex flex-col md:flex-row gap-6 items-start">
         {/* Avatar */}
         {character.avatar && (
-          <HeaderImage imageUrl={character.avatar.url} title={character.name} />
+          <HeaderImage
+            focalPoint={character.avatar.focalPoint}
+            imageUrl={character.avatar.url}
+            title={character.name}
+          />
         )}
 
         {/* Chef Details */}

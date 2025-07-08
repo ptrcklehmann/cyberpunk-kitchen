@@ -5,8 +5,21 @@ import NextImage from "next/image";
 type HeaderImageProps = {
   imageUrl: string;
   title: string;
+  focalPoint: {
+    x: number;
+    y: number;
+  } | null;
 };
-export const HeaderImage = ({ imageUrl, title }: HeaderImageProps) => {
+export const HeaderImage = ({
+  imageUrl,
+  title,
+  focalPoint,
+}: HeaderImageProps) => {
+  // Convert focal point from 0-1 coordinates to percentage
+  const objectPosition = focalPoint
+    ? `${focalPoint.x * 100}% ${focalPoint.y * 100}%`
+    : "center center";
+
   return (
     <Image
       alt={title}
@@ -14,6 +27,7 @@ export const HeaderImage = ({ imageUrl, title }: HeaderImageProps) => {
       className="rounded-3xl w-full h-32 md:w-58 md:h-58 object-cover"
       height={400}
       src={imageUrl}
+      style={{ objectPosition }}
       width={500}
     />
   );

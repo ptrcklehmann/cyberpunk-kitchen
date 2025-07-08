@@ -22,7 +22,7 @@ export const ChefRecipeCard = ({
     <Card
       isPressable
       as={Link}
-      className="flex flex-row gap-4 cursor-pointer z-10 transition transform ease-in-out hover:-translate-y-0.5 hover:shadow-lg relative"
+      className="flex flex-row  gap-4 border border-default-300 cursor-pointer z-10 transition transform ease-in-out hover:shadow-lg relative"
       href={`/recipes/${slug}`}
       title={title}
     >
@@ -34,8 +34,8 @@ export const ChefRecipeCard = ({
         src={image.url}
         width={120}
       />
-      <CardBody className="col-span-4 col-start-3">
-        <h4 className="font-bold text-xl text-default-foreground">{title}</h4>
+      <CardBody className="col-span-4 py-4 col-start-3">
+        <h4 className="font-bold text-2xl text-default-foreground">{title}</h4>
       </CardBody>
     </Card>
   );
