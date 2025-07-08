@@ -7,7 +7,7 @@ export const SearchInput = () => (
   <Input
     aria-label="Search"
     classNames={{
-      inputWrapper: "bg-default-100",
+      inputWrapper: ["bg-default-100", "hover:bg-default-200/50"],
       input: "text-sm",
     }}
     endContent={
