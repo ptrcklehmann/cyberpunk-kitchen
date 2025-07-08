@@ -69,10 +69,10 @@ export const Navbar = () => {
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
-            <Logo size={24} />
-            <p className="font-bold font-header text-danger-400">
+            <Logo size={22} />
+            <span className="text-lg/0 font-semibold font-header text-primary">
               FlavourForge
-            </p>
+            </span>
           </NextLink>
         </NavbarBrand>
         <NavLinks items={siteConfig.navItems} />
